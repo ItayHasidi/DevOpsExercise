@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-client
+  template:
+    metadata:
+      labels:
+        app: user-client
+    spec:
+      containers:
+        - name: user-client
+          image: itayhasidi/ldap:user-client
+          ports:
+            - containerPort: 3001
+          imagePullPolicy: Always
