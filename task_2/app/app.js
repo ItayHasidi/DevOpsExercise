@@ -8,7 +8,7 @@ var isUser = false;
 const email = prompt("Enter email: ");
 const password = prompt.hide("Enter password: ");
 
-let request = http.get(`http://172.17.0.2:80/addUser?email=${email}&password=${password}`, (res) => {
+let request = http.get(`http://localhost:3003/addUser?email=${email}&password=${password}`, (res) => {
   if (res.statusCode !== 200) {
     console.error(`Did not get an OK from the server. Code: ${res.statusCode}`);
     res.resume();
@@ -27,9 +27,9 @@ let request = http.get(`http://172.17.0.2:80/addUser?email=${email}&password=${p
       const options = {
         method: 'GET',
         url: 'https://google-authenticator.p.rapidapi.com/validate/',
-        params: {code: googleCode, secret: '7H3JY3IO32JDUGLF'},
+        params: {code: googleCode, secret: ''},
         headers: {
-          'X-RapidAPI-Key': '944c08d788mshae9ba7f103f8b86p1c3352jsn119847168b40',
+          'X-RapidAPI-Key': '',
           'X-RapidAPI-Host': 'google-authenticator.p.rapidapi.com'
         }
       };

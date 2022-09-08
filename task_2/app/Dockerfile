@@ -1,3 +1,3 @@
 FROM itayhasidi/ldap:ldap-ubuntu
-WORKDIR /app
-CMD node app.js
+WORKDIR /ldap-client
+CMD node ldap-client.js
